@@ -23,11 +23,15 @@ app.listen(PORT, () => {
 });
 
 app.get('/', (request, response) => {
-    response.render('index');
+    response.render('index', {
+        title: 'Index Page'
+    });
 });
 
 app.get('/about', (request, response) => {
-    response.render('about');
+    response.render('about',{
+        title: 'About Page'
+    });
 });
 
 app.get('/download', (request, response) => {
