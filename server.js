@@ -12,15 +12,19 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static('public'));
 
 app.listen(PORT, () => {
-    console.log('<============================ PORT : ' + process.env.PORT + ' ============================>');
-    console.log(`<============================ Listening on Port : ${PORT} ============================>`);
-    console.log('<============================ current path : ' + path.resolve(__dirname) + " ============================>");
+    console.log('<============ PORT : ' + process.env.PORT + ' ============>');
+    console.log(`<============ Listening on Port : ${PORT} ============>`);
+    console.log('<============ current path : ' + path.resolve(__dirname) + " ============>");
 });
 
 app.get('/', (request, response) => {
     response.sendFile(path.resolve(__dirname) + '/index.html');
 });
 
-app.get('/', (request, response) => {
+app.get('/about', (request, response) => {
     response.sendFile(path.resolve(__dirname) + '/about.html');
+});
+
+app.get('/download', (request, response) => {
+    response.download(path.resolve(__dirname) + '/about.html');
 });
