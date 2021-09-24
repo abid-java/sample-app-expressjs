@@ -9,6 +9,11 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+app.set('view engine', 'ejs');
+
+console.log('<============== View-Engine : ' + app.get('view engine') + " ==============>");
+console.log('<============== Views : ' + app.get('views') + " ==============>");
+
 app.use(express.static('public'));
 
 app.listen(PORT, () => {
@@ -18,11 +23,11 @@ app.listen(PORT, () => {
 });
 
 app.get('/', (request, response) => {
-    response.sendFile(path.resolve(__dirname) + '/index.html');
+    response.render('index');
 });
 
 app.get('/about', (request, response) => {
-    response.sendFile(path.resolve(__dirname) + '/about.html');
+    response.render('about');
 });
 
 app.get('/download', (request, response) => {
