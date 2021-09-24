@@ -11,3 +11,5 @@ D.) To Dynamically change PORT and Run application :**PORT=//number node server.
 E.)**nodemon** **package** helps us to restart server automatically whenever there is any changes in any files within application - **npm install -g nodemon** , To install nodemon as development dependency - **npm install --save-dev nodemon**
 
 F.) To run any scripts : **npm run dev**
+
+G.) To install template engine - **npm install -g ejs**
