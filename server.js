@@ -4,6 +4,7 @@ const express = require('express');
 const { dirname } = require('path');
 
 const path = require('path');
+const apiKey = require('./middlewares/apiKey');
 
 const app = express();
 
@@ -12,6 +13,7 @@ const PORT = process.env.PORT || 3000;
 const mainRouter = require('./routes/index');
 
 app.set('view engine', 'ejs');
+app.use(apiKey);
 
 console.log('<============== View-Engine : ' + app.get('view engine') + " ==============>");
 console.log('<============== Views : ' + app.get('views') + " ==============>");

@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const apiKeyMiddleware = require('../middlewares/apiKey');
 
+router.use(apiKeyMiddleware);
 router.get('/', (request, response) => {
     response.render('index', {
         title: 'Index Page'
@@ -19,7 +20,7 @@ router.get('/download', (request, response) => {
     response.download(path.resolve(__dirname) + '/about.html');
 });
 
-router.get('/api/employees', apiKeyMiddleware, (request, response) => {
+router.get('/api/employees', (request, response) => {
     response.json([{   
                     id: '1234',
                     name: 'Abid',
