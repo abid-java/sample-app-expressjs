@@ -11,6 +11,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const mainRouter = require('./routes/index');
+const employeesRouter = require('./routes/employees');
+
 
 app.set('view engine', 'ejs');
 app.use(apiKey);
@@ -19,6 +21,8 @@ console.log('<============== View-Engine : ' + app.get('view engine') + " ======
 console.log('<============== Views : ' + app.get('views') + " ==============>");
 
 app.use(express.static('public'));
+
+app.use(employeesRouter);
 
 app.use(mainRouter);
 
